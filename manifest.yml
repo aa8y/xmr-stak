@@ -1,0 +1,10 @@
+parameters:
+  repository: aa8y/xmr-stak
+templates:
+  build: docker build -t {{{repository}}}:{{tag}} {{context}}
+  push: docker push {{{repository}}}:{{tag}}
+  test: docker run --rm {{{repository}}}:{{tag}} --help
+contexts:
+  .:
+    tags:
+      latest:
